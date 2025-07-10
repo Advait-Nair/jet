@@ -1,58 +1,25 @@
-# Svelte library
+# JET UI Components
+[Advait Nair's](https://advaitnair.org)
+[JET UI System](https://jet.advaitnair.org)
+[for Svelte](https://svelte.dev)
+## Quick-start
+https://jet.advaitnair.org/docs
 
-Everything you need to build a Svelte library, powered by [`sv`](https://npmjs.com/package/sv).
+### Prerequisites
+- sveltePreprocess is a must!
+- SvelteKit or Svelte 5 (A hybrid Svelte 5 project is possible to explore, as both Legacy and Svelte 5 are supported by the compiler as of now)
+- TailwindCSS with Forms and Typography plugins
+- SCSS
 
-Read more about creating a library [in the docs](https://svelte.dev/docs/kit/packaging).
+## Quick Intro
+JET is a Sveltekit UI system and component library built on Tailwind that provides a set of components and utilities for building modern web applications. It is designed to be modular, extensible, and easy to use, allowing for customisable app structures with Tailwind's utility classes while minimising overhaul for common components like Buttons, Inputs, etc.
 
-## Creating a project
+The UI system is built with a focus on dynamic movement, using gradients and animations that change with the page state to bring a page to life. Let the documentation speak for itself.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Features
 
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
-
-## Building
-
-To build your library:
-
-```bash
-npm run package
-```
-
-To create a production version of your showcase app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
-
-## Publishing
-
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
-
-To publish your library to [npm](https://www.npmjs.com):
-
-```bash
-npm publish
-```
+- UI Library for SvelteKit with Components and Utilities
+- Modular and Extensible
+- Experimental and Dynamic
+- TailwindCSS
+- SvelteKit

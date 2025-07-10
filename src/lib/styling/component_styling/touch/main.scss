@@ -1,0 +1,591 @@
+@import '../../jet.scss';
+
+// Sizing and scaling variables
+$underline-height: 2px;
+$underline-offset: 0px;
+$tertiary-border-width: 1.5px;
+$button-active-scale: 0.96;
+
+$dd-thickness: 0.4rem;
+
+$border-addition-padding: 0.3rem;
+$border-addition-thickness: 1px;
+$border-addition-hover-opacity: 0.3;
+$border-addition-active-opacity: 1;
+
+
+// Button radius
+$button-radius: $radius-xl;
+$radius-dropdown-meet: 0;
+// Button Sizing
+$paddingRatio: $phi;
+$padding-multiplier: 1.1;
+
+$quaternaryPaddingRatio: 1;
+$quaternaryPaddingMultiplier: 0;
+
+// Background colors
+$secondary-bg-color: var(--gray-800-bo);
+$secondary-hover-bg-color: var(--gray-700-bo);
+
+// Timer color
+$timer-color: rgba($gray-500, 0.5);
+$disabled-timer-color: rgba($gray-500, 0.5);
+
+$primary-timer-color: rgba($gray-500, 0.5);
+$secondary-timer-color: rgba($gray-300, 0.4);
+$tertiary-timer-color: rgba($gray-300, 0.4);
+$tertiary-solid-timer-color: rgba($gray-300, 0.4);
+
+// Underline colors
+$primary-underline-color: rgba($gray-500, 0.45);
+
+$secondary-underline-color: rgba($gray-500, 0.8);
+$tertiary-underline-color: rgba($gray-100, 0.5);
+$tertiary-solid-underline-color: rgba($gray-200, 0.8);
+
+$primary-underline-active-color: rgba($gray-900, 0.7);
+$secondary-underline-active-color: rgba($gray-300, 0.7);
+$tertiary-underline-active-color: rgba($gray-100, 0.75);
+$tertiary-solid-underline-active-color: rgba($gray-100, 1);
+
+
+
+// Quaternary underline colors
+$quaternary-underline-color: rgba($gray-500, 0.55);
+$quaternary-underline-hover-color: rgba($gray-300, 0.8);
+$quaternary-underline-active-color: rgba($gray-100, 0.9);
+
+// Glow effect variables
+$primary-hover-glow-color: $gray-400;
+$primary-hover-glow-opacity: 0.5;
+$primary-active-glow-color: $gray-300;
+$primary-active-glow-opacity: 0.4;
+
+
+
+$secondary-hover-glow-color: $gray-700;
+$secondary-hover-glow-opacity: 0.6;
+$secondary-active-glow-color: $gray-500;
+$secondary-active-glow-opacity: 0.3;
+
+$tertiary-hover-glow-color: $gray-700;
+$tertiary-hover-glow-opacity: 0.47;
+$tertiary-active-glow-color: $gray-700;
+$tertiary-active-glow-opacity: 0.3;
+
+$tertiary-solid-hover-glow-color: $gray-600;
+$tertiary-solid-hover-glow-opacity: 0.8;
+$tertiary-solid-active-glow-color: $gray-600;
+$tertiary-solid-active-glow-opacity: 0.5;
+
+// Mixins
+@mixin glow-effect($color: $gray-500, $opacity: 0.5) {
+    box-shadow: 0 0 10px rgba($color, $opacity), 0 0 80px rgba($color, $opacity);
+}
+
+.button-pad-style {
+    @include touch-pad-ratio($phi, $padding-multiplier, true);
+}
+
+button.jtb {
+    position: relative;
+    white-space: nowrap; text-overflow: ellipsis;
+    @include standard-transition($l1-transition);
+
+    &.jtb-small {
+        font-size: $small * 1rem !important;
+    }
+    &.jtb-large {
+        font-size: $large * 1rem !important;
+    }
+
+    
+
+    span {
+        @include standard-transition($l1-transition);
+    }
+
+    &.jtb-dd-aside {
+        border-top-right-radius: $radius-dropdown-meet !important;
+        border-bottom-right-radius: $radius-dropdown-meet !important;
+    }
+    
+    .jtb-text {
+        position: relative;
+    }
+    // Base underline styles
+    & .jtb-text::before {
+        @include standard-transition($l2-transition);
+        content: '';
+        position: absolute;
+        bottom: $underline-offset;
+        left: 0;
+        width: 0%;
+        height: $underline-height;
+        transform-origin: left;
+    }
+    
+    // Hover effects
+    &:hover .jtb-text::before {
+        width: 100%;
+    }
+    
+    &:active, &.jtb-active {
+        &:not(.jtb-no-active-scaling) {
+            transform: scale($button-active-scale);
+            // We disable the simulated click scaling effect on buttons with active states that are manually invoked.
+            // This is to allow for other use cases like active navbar toggles without weird scaling creating inconsistencies.
+        }
+    }
+    .jtb-outline {
+        display: none;
+    }
+    &:not(.jtb-quaternary, .jtb-quaternaryUnderline, .jtb-tertiarySolid, .jtb-no-hover-outline), .jtb-force-hover-outline {
+        & .jtb-outline {
+            display: block;
+            // content: '';
+            position: absolute;
+            top: -$border-addition-padding;
+            right: -$border-addition-padding;
+            width: calc(100% + $border-addition-padding*2);
+            height: calc(100% + $border-addition-padding*2);
+            border: solid $border-addition-thickness rgba($primary-hover-glow-color, $blend-opacity);
+            border-radius: $button-radius + $border-addition-padding;
+            opacity: 0;
+            pointer-events: none;
+            @include standard-transition($l2-transition);
+        }
+        &:hover .jtb-outline {
+            opacity: $border-addition-hover-opacity;
+        }
+        &:active .jtb-outline {
+            opacity: $border-addition-active-opacity;
+        }
+    }
+
+    &.jtb-active .jtb-text::before {
+        width: 100%;
+    }
+    
+    // Primary button styles
+    &.jtb-primary {
+        @include standard-inversion;
+        
+        &:hover {
+            @include glow-effect($primary-hover-glow-color, $primary-hover-glow-opacity);
+        }
+
+        
+
+
+        & .jtb-text::before {
+            background-color: $primary-underline-color;
+        }
+
+        &:active, &.jtb-active {
+            @include glow-effect($primary-active-glow-color, $primary-active-glow-opacity);
+
+            & .jtb-text::before {
+                background-color: $primary-underline-active-color;
+            }
+        }
+        
+        &.jtb-blend {
+            @include standard-inversion($blend-opacity);
+        }
+    }
+    
+    // Secondary button styles
+    &.jtb-secondary {
+        background-color: $secondary-bg-color;
+        color: var(--jet-standard-text);
+        
+        &:hover {
+            @include glow-effect($secondary-hover-glow-color, $secondary-hover-glow-opacity);
+            background-color: $secondary-hover-bg-color;
+        }
+
+        &:hover .jtb-text::before {
+            background-color: $secondary-underline-color;
+        }
+
+        &:active, &.jtb-active {
+            @include glow-effect($secondary-active-glow-color, $secondary-active-glow-opacity);
+            & .jtb-text::before {
+                background-color: $secondary-underline-active-color;
+            }
+        }
+
+    }
+    
+    // Tertiary button styles
+    &.jtb-tertiary {
+        border: $tertiary-border-width solid var(--gray-400-bbo);
+        background: transparent;
+
+        padding: calc((1/$paddingRatio)*$padding-multiplier*1rem - $tertiary-border-width) calc($paddingRatio*$padding-multiplier*1rem) !important;
+        & .jtb-outline {
+            width: calc(100% + $border-addition-padding*2 + $tertiary-border-width*2);
+            height: calc(100% + $border-addition-padding*2 + $tertiary-border-width*2);
+            top: calc($border-addition-padding*-1 - $tertiary-border-width);
+            left: calc($border-addition-padding*-1 - $tertiary-border-width);
+        }
+        
+        &:hover {
+            @include glow-effect($tertiary-hover-glow-color, $tertiary-hover-glow-opacity);
+            background: rgba($tertiary-hover-glow-color, $tertiary-active-glow-opacity) !important;
+        }
+        &:hover .jtb-text::before {
+            background-color: $tertiary-underline-color;
+        }
+        &:active, &.jtb-active {
+            @include glow-effect($tertiary-active-glow-color, $tertiary-active-glow-opacity);
+            & .jtb-text::before {
+                background-color: $tertiary-underline-active-color;
+            }
+        }
+    }
+    
+    // Tertiary solid styles
+    &.jtb-tertiarySolid {
+        border: $tertiary-border-width solid var(--jet-standard-text);
+        background: transparent;
+
+        padding: calc((1/$paddingRatio)*$padding-multiplier*1rem - $tertiary-border-width) calc($paddingRatio*$padding-multiplier*1rem) !important;
+
+        &:hover {
+            @include glow-effect($tertiary-solid-hover-glow-color, $tertiary-solid-hover-glow-opacity);
+            background: rgba($tertiary-solid-hover-glow-color, 0.35) !important;
+        }
+        &:hover .jtb-text::before {
+            background-color: $tertiary-solid-underline-color;
+            width: 100%;
+        }
+        &:active, &.jtb-active {
+            @include glow-effect($tertiary-solid-active-glow-color, $tertiary-solid-active-glow-opacity);
+            & .jtb-text::before {
+                background-color: $tertiary-solid-underline-active-color;
+            }
+        }
+        &[disabled] {
+            border-color: rgba($gray-200, 0.5);
+        }
+    }
+    
+    // Solid background variants
+    &.jtb-tertiarySolid.jtb-solid, 
+    &.jtb-quaternary.jtb-solid, 
+    &.jtb-tertiary.jtb-solid {
+        background: var(--jet-bg);
+    }
+    
+    // Blur effects
+    &.jtb-blend, &:not(.jtb-solid) {
+        @include glass-pane($blur-md);
+    }
+    &.jtb-quaternary, &.jtb-quaternaryUnderline {
+        @include glass-pane(0);
+    }
+    
+    // Standard button sizing
+    &:not(.jtb-quaternary, .jtb-quaternaryUnderline) {
+        @include touch-pad-ratio($paddingRatio, $padding-multiplier);
+        @include touch-font();
+        border-radius: $button-radius;
+
+        &.jtb-small {
+            @include touch-pad-ratio($paddingRatio, $padding-multiplier * $small);
+        }
+        &.jtb-large {
+            @include touch-pad-ratio($paddingRatio, $padding-multiplier * $large);
+        }
+    }
+
+    &.jtb-square {
+        padding: ((1/$paddingRatio)*$padding-multiplier)*1rem !important;
+        &, .jtb-outline {
+            border-radius: $radius-full;
+        }
+    }
+    
+    // Quaternary and quaternary underline styles
+    &.jtb-quaternary, &.jtb-quaternaryUnderline {
+        @include touch-pad-ratio($quaternaryPaddingRatio, $quaternaryPaddingMultiplier);
+        @include touch-font();
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    // Quaternary specific styles
+    &.jtb-quaternary {
+        & .jtb-text::before {
+            width: 0%;
+            transform: scaleX(100%) !important;
+            left: 0 !important;
+            top: 100%;
+        }
+
+        &:hover .jtb-text::before {
+            background-color: $quaternary-underline-hover-color !important;
+            width: 100%;
+        }
+        &:active .jtb-text::before, &.jtb-active .jtb-text::before {
+            background-color: $quaternary-underline-active-color !important;
+            width: 100%;
+        }
+    }
+    
+    // Quaternary underline specific styles
+    &.jtb-quaternaryUnderline {
+        & .jtb-text::before {
+            background-color: $quaternary-underline-color !important;
+            width: 100%;
+            transform: scaleX(100%) !important;
+            left: 0 !important;
+            top: 100%;
+        }
+
+        &:hover .jtb-text::before {
+            background-color: $quaternary-underline-hover-color !important;
+        }
+
+        &:active .jtb-text::before, &.jtb-active .jtb-text::before {
+            background-color: $quaternary-underline-active-color !important;
+        }
+    }
+    
+    // Disable underlines
+    &.jtb-no-underline {
+        & .jtb-text::before {
+            display: none !important;
+        }
+    }
+    &.jtb-no-general-underline {
+        &:not(.jtb-quaternary, .jtb-quaternaryUnderline) .jtb-text::before {
+            display: none !important;
+        }
+    }
+
+    &.jtb-disabled, &[disabled] {
+        opacity: 0.5;
+        pointer-events: none;
+
+        & .jtb-text::before {
+            display: none !important;
+        }
+    }
+
+    &.jtb-dropdown {
+        border-top-left-radius: $radius-dropdown-meet !important;
+        border-bottom-left-radius: $radius-dropdown-meet !important;
+        &:not(.jtb-tertiary, .jtb-tertiarySolid) {
+            padding: (1/$paddingRatio * $padding-multiplier*1rem) $dd-thickness !important;
+        }
+        &.jtb-tertiary, &.jtb-tertiarySolid {
+            padding: calc((1/$paddingRatio)*$padding-multiplier*1rem - $tertiary-border-width) $dd-thickness !important;
+        }
+        &.jtb-tertiarySolid {
+            border-left: none;
+        }
+
+        
+    }
+
+
+    // Timed Buttons: At times, we need to time buttons to do something, such as disable or auto-click after a delay.
+    
+    &.jtb-timer {
+        // &:not(.jtb-quaternary, .jtb-quaternaryUnderline) {
+        //     // overflow: hidden;
+        // }
+        .timer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0%;
+            pointer-events: none;
+            @include standard-transition($l1-transition);
+        }
+        .timer {
+            background-color: $timer-color;
+        }
+
+        &.jtb-primary .timer {
+            background-color: $primary-timer-color;
+        }
+        &.jtb-secondary .timer {
+            background-color: $secondary-timer-color;
+        }
+        &.jtb-tertiary .timer {
+            background-color: $tertiary-timer-color;
+        }
+        &.jtb-tertiarySolid .timer {
+            background-color: $tertiary-solid-timer-color;
+        }
+        &[disabled] .timer {
+            background-color: $disabled-timer-color;
+        }
+    };
+
+    @keyframes jtb-timer {
+        from {
+            width: 0%;
+        }
+        to {
+            width: 100%;
+        }
+    }
+}
+
+.jtb-dropdown-wrapper {
+    position: relative;
+    & .jtb-dropdown-position-controller {
+        position: absolute;
+        width: 100%;
+        top: 100%;
+    }
+}
+
+
+.jet-toggle-enabled {
+    .jet-toggle {
+        background: var(--jet-standard-text);
+    }
+    .jet-toggle-white {
+        background: var(--jet-bg);
+        // right: 0;
+        // left: unset !important;
+        left: calc(50% - 1px) !important;
+    }
+}
+
+.jet-toggle {
+    position: relative;
+    .jet-toggle-white {
+        position: absolute;
+        left: 0;
+    }
+
+    &, * {
+        transition: all $l1-transition;
+    }
+}
+
+
+// ? Input
+
+.jti-input {
+    border: $border-addition-thickness solid $tertiary-hover-glow-color;
+    background: rgba($tertiary-solid-hover-glow-color, $tertiary-active-glow-opacity) !important;
+    border-radius: $radius-4xl;
+    input {
+        background: none;
+        border: none;
+        outline: 0 !important;
+        box-shadow: none !important;
+        &::placeholder {
+            color: $tertiary-solid-active-glow-color !important;
+        }
+        font-size: 1.05rem;
+        height: 3rem;
+        &.titled {
+            padding-bottom: 0;
+            padding-top: 1rem;
+        }
+    }
+    .jti-icon {
+        min-width: 1rem;
+        // border-right: $border-addition-thickness solid $tertiary-hover-glow-color;
+        height: 100%;
+        background: rgba($tertiary-solid-hover-glow-color, $tertiary-active-glow-opacity) !important;
+        margin: .3rem;
+        border-radius: $radius-4xl;
+    }
+
+    .jti-input-description {
+        pointer-events: none;
+        user-select: none;
+        left: 4.3rem;
+        @include standard-transition($l1-transition);
+        &.smallerised {
+            top: 0.4rem;
+            font-size: 0.9rem;
+        }
+        font-size: 1.1rem;
+        text-align: center;
+        color: $tertiary-solid-active-glow-color;
+    }
+
+    &.jti-invalid {
+        border-color: var(--color-red-400) !important;
+        position: relative;
+        &::before {
+            position: absolute;
+            inset: 0;
+            content: '';
+            background: var(--color-red-400);
+            opacity: 0.1;
+            z-index: 1;
+            user-select: none;
+            pointer-events: none;
+        }
+    }
+    
+    .jti-input-feedback {
+        position: absolute;
+        left: 4.3rem;
+        // text-align: center;
+        top: 0;
+        border-bottom-left-radius: $radius-2xl;
+        border-bottom-right-radius: $radius-2xl;
+        padding: .1rem 1rem;
+        font-size: 0.9rem;
+        background: var(--color-red-400);
+        z-index: 1;
+        @include standard-transition($l1-transition);
+    }
+
+
+    &.small {
+        border-radius: $radius-4xl;
+        .jti-icon {
+            margin: 0;
+            border-radius: 0;
+        }
+        .jti-input-description, .jti-input-feedback {
+            left: 3.7rem;
+            &.smallerised {
+                font-size: 0.8rem;
+                top: 0.2rem;
+            }
+        }
+        .jti-input-feedback {
+            padding: 0.1rem 1rem;
+            font-size: 0.8rem;
+        }
+    }
+    &.large {
+        border-radius: $radius-3xl;
+        .jti-icon {
+            margin: 0.4rem;
+            height: 3.5rem;
+            border-radius: $radius-2xl;
+            min-width: 3.5rem;
+        }
+        input {
+            font-size: 1.1rem;
+        }
+        .jti-input-description, .jti-input-feedback {
+            left: 5rem;
+            &.smallerised {
+                top: 0.7rem;
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+    
+    
+}

@@ -1,0 +1,101 @@
+@import './variables.scss';
+
+
+// Colouring
+@mixin standard-colouring($bg-opacity: 100%) {
+    color: var(--jet-standard-text);
+    @if $bg-opacity == 100% {
+        background-color: var(--jet-bg);
+    } @else {
+        background-color: rgba(var(--jet-bg), $bg-opacity);
+    }
+    
+}
+@mixin standard-inversion($bg-opacity: 100%) {
+    color: var(--jet-bg);
+    @if $bg-opacity == 100% {
+        background-color: var(--jet-standard-text);
+    } @else {
+        background-color: rgba(var(--jet-standard-text), $bg-opacity);
+    }
+}
+
+
+
+// Stylistics
+@mixin glass-pane($size) {
+    backdrop-filter: blur($size);
+    -webkit-backdrop-filter: blur($size);
+}
+
+@mixin standard-transition($duration: $l1-transition) {
+    transition: all $duration;
+    -webkit-transition: all $duration;
+}
+
+
+// Touch
+@mixin touch-pad-ratio($ratio: 1.5, $multiplier: 1, $override: false) {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    @if $override == false {
+        padding: calc(1rem/$ratio * $multiplier) calc(1rem*$ratio * $multiplier);
+    } @else {
+        padding: calc(1rem/$ratio * $multiplier) calc(1rem*$ratio * $multiplier) !important;
+    }
+}
+
+// Fonts & Typography
+@mixin touch-font($size: $jet-font-standard, $family: $jet-font-family) {
+    font-size: $size;
+    font-family: $family;
+    line-height: 1.5;
+    font-weight: 500;
+    letter-spacing: -.2px;
+}
+
+@mixin standard-font($size: $jet-font-standard, $family: $jet-font-family) {
+    font-size: $size;
+    font-family: $family;
+    line-height: 1.2;
+    font-weight: 400;
+    letter-spacing: -.1px;
+}
+
+// Generics
+@mixin padding($top: 0, $right: 0, $bottom: 0, $left: 0) {
+    padding-top: calc($s*$top);
+    padding-right: calc($s*$right);
+    padding-bottom: calc($s*$bottom);
+    padding-left: calc($s*$left);
+}
+
+@mixin margin($top: 0, $right: 0, $bottom: 0, $left: 0) {
+    margin-top: calc($s*$top);
+    margin-right: calc($s*$right);
+    margin-bottom: calc($s*$bottom);
+    margin-left: calc($s*$left);
+}
+
+@mixin mask-image($properties) {
+    mask-image: $properties;
+    -webkit-mask-image: $properties;
+}
+
+@mixin background-control() {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+// Custom Element Definition: Define basic styling for custom elements
+@mixin ced { 
+    display: block !important;
+}
+
+
+

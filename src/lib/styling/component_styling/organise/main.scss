@@ -1,0 +1,78 @@
+@import '../../jet.scss';
+
+$border-thickness: 2px;
+
+.jo-divider {
+    height: 1px;
+    background: var(--gray-400-bbo);
+
+}
+
+.jo-aura-card {
+    border: none !important;
+}
+
+.jo-card {
+    background: var(--gray-600-bbo);
+    border: solid $border-thickness var(--gray-600-bbo);
+    position: relative;
+    z-index: 1;
+
+    &, .jo-main-content, .jo-bg, .jo-aura-card-main-content {
+        border-radius: $radius-2xl;
+    }
+    &.xl {
+        &, ::before, &::after, .jo-bg, .jo-backdrop-filter-controller, .jo-main-content, .jo-aura-card-main-content {
+            border-radius: $radius-4xl;
+            @include background-control();
+        }
+    }
+    &.md {
+        &, ::before, &::after, .jo-bg, .jo-backdrop-filter-controller, .jo-main-content, .jo-aura-card-main-content {
+            border-radius: $radius-3xl;
+            @include background-control();
+        }
+    }
+
+    &.dark {
+        background: var(--gray-900-bo);
+    }
+
+
+    .jo-bg-blur {
+        position: absolute;
+        inset: 0;
+        filter: blur($blur-leak);
+        -webkit-filter: blur($blur-leak);
+        z-index: -2;
+        opacity: 1;
+        
+    }
+
+    .jo-main-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .jo-bg, .jo-aura-card-main-content {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+    }
+
+    .aura-bg {
+        position: absolute;
+        inset: 0;
+        z-index: -1;;
+    }
+
+    // .jo-backdrop-filter-controller {
+    //     position: absolute;
+    //     inset: -$border-thickness;
+    //     z-index: 0;
+    //     pointer-events: none;
+    //     user-select: none;
+    //     background: transparent;
+    // }
+
+}
