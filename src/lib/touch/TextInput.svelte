@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { removeClass } from '$lib/utils/Utils.js';
 	import { onMount } from 'svelte';
-    import '../styling/component_styling/touch/main.scss';
+    // import '../styling/component_styling/touch/main.scss';
 	import { checkInputValidity, deduceIconType, FilterToInputType, validState } from './Input.js';
     let {
         children = undefined,

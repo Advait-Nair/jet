@@ -1,6 +1,6 @@
 <script>
 	import { removeClass } from '$lib/utils/Utils.js';
-    import '../styling/component_styling/organise/main.scss';
+    // import '../styling/component_styling/organise/main.scss';
     let { w=100, my=2,mb=-1,mt=-1,...props } = $props();
 
 

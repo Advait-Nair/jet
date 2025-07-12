@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { removeClass } from '$lib/utils/Utils.js';
-    import '../styling/component_styling/text/main.scss';
+    // import '../styling/component_styling/text/main.scss';
     let { children = ()=>{}, ...props } = $props();
 
     

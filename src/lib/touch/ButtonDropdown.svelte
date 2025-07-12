@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Card from '$lib/organise/Card.svelte';
 	import { removeClass } from '$lib/utils/Utils.js';
-    import '../styling/component_styling/text/main.scss';
+    // import '../styling/component_styling/text/main.scss';
 	import Button from './Button.svelte';
     let { children = ()=>{}, options, selectedOption = $bindable(), dropdownEnabled = $bindable(false), closeOnClick=true, ...props } = $props();
 

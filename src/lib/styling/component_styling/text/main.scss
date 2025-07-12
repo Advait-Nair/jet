@@ -120,6 +120,19 @@ $htouchdiasize: 0.7rem;
     font-weight: $jet-weight-hero;
     letter-spacing: $jet-letter-spacing-hero;
 }
+
+@media screen and (max-width: 640px) {
+    .jet-hero {
+        font-size: calc($jet-font-hero * 0.8);
+        letter-spacing: calc($jet-letter-spacing-hero * 0.8);
+    }
+}
+@media screen and (max-width: 465px) {
+    .jet-hero {
+        font-size: calc($jet-font-hero * 0.6);
+        letter-spacing: calc($jet-letter-spacing-hero * .6) !important;
+    }
+}
 .jet-subtitle {
     @extend .jtt-subtitle;
     margin: 0; padding: 0;

@@ -4,7 +4,7 @@ const config = {
     fastTransitionDuration: 100,
     slowTransitionDuration: 300,
 
-    // For transitions that fly in, the dispalcement value is the x/y travel distance before/after they fade.
+    // For transitions that fly in, the displacement value is the x/y travel distance before/after they fade.
     fastDisplacement: 20,
     standardDisplacement: 30,
 }

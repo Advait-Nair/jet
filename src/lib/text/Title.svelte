@@ -1,5 +1,5 @@
 <script lang="ts">
-    import '../styling/component_styling/text/main.scss';
+    // import '../styling/component_styling/text/main.scss';
 	import Category from './Category.svelte';
     import Divider from '$lib/organise/Divider.svelte';
 	import { defaultPad, generateId, procHash, warn } from './TextUtils.js';

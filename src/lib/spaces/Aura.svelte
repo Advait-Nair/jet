@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getClosestProperty, isPossibleURL } from '$lib/utils/Utils.js';
-    import '../styling/component_styling/spaces/main.scss';
+    // import '../styling/component_styling/spaces/main.scss';
 	import type AuraConfig from './AuraConfig.js';
 
     let defaultAuraConfig:AuraConfig[] = [

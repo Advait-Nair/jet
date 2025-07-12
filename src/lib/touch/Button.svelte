@@ -1,7 +1,7 @@
 <script lang="ts">
     import TouchTypes from "./TouchTypes.js";
     import Dropdown from "./ButtonDropdown.svelte";
-    import '../styling/component_styling/touch/main.scss';
+    // import '../styling/component_styling/touch/main.scss';
 	import { json } from "@sveltejs/kit";
 	import { onDestroy, onMount } from "svelte";
 	import { fade, fly } from "svelte/transition";

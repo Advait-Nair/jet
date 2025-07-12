@@ -1,6 +1,6 @@
 <script>
 	import { removeClass } from '$lib/utils/Utils.js';
-    import '../styling/component_styling/spaces/main.scss';
+    // import '../styling/component_styling/spaces/main.scss';
     let { children, p=0, auraId=-1, ...props } = $props();
 </script>
 

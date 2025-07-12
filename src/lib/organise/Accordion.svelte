@@ -2,7 +2,7 @@
 	import Subtitle from '$lib/text/Subtitle.svelte';
 	import { removeClass } from '$lib/utils/Utils.js';
 	import { fly } from 'svelte/transition';
-    import '../styling/component_styling/organise/main.scss';
+    // import '../styling/component_styling/organise/main.scss';
 	import Divider from './Divider.svelte';
 	import config from '$lib/config.js';
     let defaultIcon = 'expand_more';

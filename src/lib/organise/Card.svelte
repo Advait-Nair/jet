@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { removeClass } from '$lib/utils/Utils.js';
-    import '../styling/component_styling/organise/main.scss';
+    // import '../styling/component_styling/organise/main.scss';
     let { children = ()=>{}, bg='', bgIntensity=.5, aura=false, xl=false, md=false, glass=false, dark=false, z=1, mainContentClass='', wrapperClass='', nofw=false, scale=1.05, ...props } = $props();
 
     let filterControl = $state('');

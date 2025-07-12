@@ -11,7 +11,6 @@ import Divider from './organise/Divider.svelte';
 import Aura from './spaces/Aura.svelte';
 import PageModifiers from './utils/PageModifiers.svelte';
 import Hero from './text/Hero.svelte';
-import ButtonDropdown from './touch/ButtonDropdown.svelte';
 import Card from './organise/Card.svelte';
 import AuraCard from './organise/AuraCard.svelte';
 import Aurora from './spaces/Aurora.svelte';
@@ -21,6 +20,7 @@ import Modal from './utils/Modal.svelte';
 import Toggle from './touch/Toggle.svelte';
 import Accordion from './organise/Accordion.svelte';
 import TextInput from './touch/TextInput.svelte';
+import Prerequisites from './utils/Prerequisites.svelte';
 
 
 const jet = {
@@ -54,7 +54,8 @@ const jet = {
         SaturateSvg,
         Notify,
         Modal,
-    }
+        Prerequisites
+    },
 }
 
 export default jet;

@@ -2,7 +2,7 @@
 	import Card from '$lib/organise/Card.svelte';
     import Divider from '$lib/organise/Divider.svelte';
 	import { removeClass } from '$lib/utils/Utils.js';
-    import '../styling/component_styling/organise/main.scss';
+    // import '../styling/component_styling/organise/main.scss';
 	import { fade, fly } from 'svelte/transition';
 	import Button from '$lib/touch/Button.svelte';
 	import Aurora from '$lib/spaces/Aurora.svelte';

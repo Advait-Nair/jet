@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { removeClass } from '$lib/utils/Utils.js';
-    import '../styling/component_styling/text/main.scss';
+    // import '../styling/component_styling/text/main.scss';
 	import HashTouch from './HashTouch.svelte';
     let { children = ()=>{}, id='', nohashlink=false, scrollPad=defaultPad, ...props } = $props();
     import { defaultPad, generateId, procHash, warn } from './TextUtils.js';
