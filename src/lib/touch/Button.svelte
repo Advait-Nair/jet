@@ -170,9 +170,6 @@
 
     let hovering = $state(false);
 
-    $effect(() => {
-        console.log(selectedOption);
-    });
 
 </script>
 

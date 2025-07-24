@@ -24,8 +24,12 @@
 
 // Stylistics
 @mixin glass-pane($size) {
-    backdrop-filter: blur($size);
-    -webkit-backdrop-filter: blur($size);
+    @supports (backdrop-filter: blur($size)) {
+        backdrop-filter: blur($size);
+    }
+    @supports (-webkit-backdrop-filter: blur($size)) {
+        -webkit-backdrop-filter: blur($size);
+    }
 }
 
 @mixin standard-transition($duration: $l1-transition) {

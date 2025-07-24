@@ -3,6 +3,7 @@
 
     import { browser } from "$app/environment";
 	import { onMount } from "svelte";
+	import { removeClass } from "$lib/utils/Utils.js";
 
     const uniqueId = Math.random().toString(36).substring(2, 15);
 
@@ -38,7 +39,7 @@
 
 
 
-<canvas {...props} style="height:{height}; width: {width}; {colorsCompiled}" id="gradient-canvas-{uniqueId}"></canvas>
+<canvas class="pointer-events-none {props['class'] || ''}" {...removeClass(props)} style="height:{height}; width: {width}; {colorsCompiled}" id="gradient-canvas-{uniqueId}"></canvas>
 
 
 <style lang="scss">

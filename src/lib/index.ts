@@ -21,6 +21,7 @@ import Toggle from './touch/Toggle.svelte';
 import Accordion from './organise/Accordion.svelte';
 import TextInput from './touch/TextInput.svelte';
 import Prerequisites from './utils/Prerequisites.svelte';
+import ImmersionAurora from './utils/ImmersionAurora.svelte';
 
 
 const jet = {
@@ -54,7 +55,8 @@ const jet = {
         SaturateSvg,
         Notify,
         Modal,
-        Prerequisites
+        Prerequisites,
+        ImmersionAurora,
     },
 }
 
