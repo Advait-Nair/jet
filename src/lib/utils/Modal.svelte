@@ -56,6 +56,7 @@
         </Card>
     </div>
 </div>
+<div class="z-30 fixed inset-0 bg-black"></div>
 {/if}
 
 {#if !immersive && visible}
