@@ -33,7 +33,7 @@
     @include standard-colouring($card-blend-opacity);
 }
 
-code {
+code:not(.shiki code, .jtt-clear code) {
     @include standard-font($jet-font-secondary, $jet-font-family-mono);
     background-color: var(--gray-400-bbo);
     padding: 0.15rem 0.4rem;
