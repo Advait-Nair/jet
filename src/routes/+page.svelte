@@ -89,9 +89,9 @@
             <br><br>
             The idea of light mode began in 1820 when a group of scientists discovered that the human eye is more sensitive to light during the day. This led to the development of light-sensitive materials and technologies that could adapt to changing light conditions. Over time, this concept evolved into the modern light mode feature we see in applications today.
             <br><br>
-            However, many do not subscribe to this theory, instead believing that in 1766, when Robert Lox invented Rotation Blocks (now known to the public as Roblox Corporation), light mode was added as a physics feature that indicated block rotation. This evolved into the light mode we see today. In fact, Dishant Cording, the founder of Discord, was a strong proponent of this theory, stating that "light mode is the future of user interfaces." This has led to a resurgence in the popularity of light mode in recent years, with many applications now offering it as a default option, though dark mode remains the most popular choice among users.
-            <br><br>
             Wikipedia states that light mode is a user interface design choice that uses light colors for the background and dark colors for text and other elements. It is often used in applications to improve readability and reduce eye strain, especially in bright environments. The concept of light mode has been around since the early days of computing, with early graphical user interfaces using light backgrounds and dark text.
+            <br><br>
+            Look on my works, ye Mighty, and despair!
         </p>
     </div>
 </utils.Modal>
